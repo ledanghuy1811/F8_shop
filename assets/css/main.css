@@ -1,5 +1,13 @@
+/* Body */
+.app {
+    width: 100%;
+    overflow: hidden;
+}
+
 /* Header */
 .header {
+    display: flex;
+    align-items: center;
     height: var(--header-height);
     background-image: linear-gradient(0,#fe6433,#f53e2d);
 }
@@ -173,7 +181,7 @@
     display: none;  
     animation: fadeIn ease-in 0.3s;
     box-shadow: 0 0 3px 1px rgb(234, 231, 231);
-    z-index: 1;
+    z-index: 3;
 }
 
 .header__qr::before,
@@ -455,10 +463,19 @@
     align-items: center;
 }
 
+.header__mobile-search {
+
+}
+
+.header__mobile-search-icon {
+    font-size: 2.6rem;
+    color: var(--white-color);
+    padding: 0 16px;
+}
+
 .header__logo {
-    width: 200px;
+    width: 194px;
     margin-left: 8px;
-    margin-right: 28px;
 }
 
 .header__logo-link {
@@ -680,6 +697,7 @@
 
 .header__search-option {
     position: absolute;
+    z-index: 1;
     right: 0;
     top: calc(100% + 16px);
     list-style: none;
@@ -742,7 +760,7 @@
 
 .header__cart-list-item {
     list-style: none;
-    height: 50vh;
+    max-height: 50vh;
     overflow-y: auto;
 }
 
@@ -836,6 +854,54 @@
 .header__cart-view-cart:hover {
     background-color: #F05D41;
 }
+
+/* header-sort-bar */
+.header__sort-bar {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    height: var(--header-sort-bar-height);
+    background-color: var(--white-color);
+    list-style: none;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    display: none;
+}
+
+.header__sort-item {
+    flex: 1;
+}   
+
+.header__sort-link {
+    position: relative;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    display: block;
+    height: 100%;
+    line-height: var(--header-sort-bar-height);
+    text-align: center;
+}
+
+.header__sort-link::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 60%;
+    border-left: 1px solid #e5e5e5;
+    transform: translateY(-50%);
+}
+
+.header__sort-item--active .header__sort-link {
+    color: var(--primary-color);
+}
+
+.header__sort-item:first-child .header__sort-link::before {
+    display: none;
+}
+
 
 /* App container css */
 .app__container {
